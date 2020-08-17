@@ -28,15 +28,13 @@ public class Program {
 			System.out.println("//////////////////////////////");
 			System.out.println("1 - Criar respostas dos alunos");
 			System.out.println("2 - Gerar Gabarito");
-			System.out.println("3 - Visualizar pastas das diciplinas");
-			System.out.println("4 - Localizar discplina e gabarito ");
-			System.out.println("5 - Ler gabrito");
-			System.out.println("6 - Gerar em Ordem Lafabetica");
+			System.out.println("3 - Localizar discplina e gabarito ");
+			System.out.println("4 - Ler gabrito");
+			System.out.println("5 - Gerar em Ordem Lafabetica");
 			System.out.println("10 - Sair");
 			System.out.println("//////////////////////////////");
 			System.out.print("Opação:  ");
-			n = Integer.parseInt(sc.nextLine());
-			sc.nextLine();
+			n = sc.nextInt();
 			System.out.println("//////////////////////////////");
 
 			switch (n) {
@@ -62,19 +60,12 @@ public class Program {
 				break;
 
 			case 4:
-
-				System.out.println("Escolha uma disciplina ");
-				String disc = sc.next();
-				file(disc);
-				break;
-
-			case 5:
 				System.out.println("Digite qual a disciplina para ver o gabarito");
 				String gabDisc = sc.next();
 				gerarGabarito(gabDisc);
 				break;
 
-			case 6:
+			case 5:
 				System.out.println("Digite a disciplina");
 				String nota = sc.next();
 				gerarOrden(nota);
@@ -82,7 +73,7 @@ public class Program {
 			}
 
 		}
-		
+		sc.close();
 	}
 
 	public static void arquivo(String arquivo) {
@@ -105,8 +96,7 @@ public class Program {
 				System.out.println("Deseja adicionar mais alunos?");
 				System.out.println("S / sim , N / não");
 				res = sc.next();
-				if (res.equalsIgnoreCase("N"))
-					flag = false;
+				if (res.equalsIgnoreCase("N"))flag = false;
 			}
 
 			System.out.println("Arquivo criado com sucesso!!");
@@ -115,8 +105,6 @@ public class Program {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-		sc.close();
 	}
 
 	public static void gabarito(String gab) {

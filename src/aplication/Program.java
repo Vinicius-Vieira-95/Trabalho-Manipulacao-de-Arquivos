@@ -31,11 +31,12 @@ public class Program {
 			System.out.println("3 - Visualizar pastas das diciplinas");
 			System.out.println("4 - Localizar discplina e gabarito ");
 			System.out.println("5 - Ler gabrito");
-			System.out.println("6 - Nota");
+			System.out.println("6 - Gerar em Ordem Lafabetica");
 			System.out.println("10 - Sair");
 			System.out.println("//////////////////////////////");
 			System.out.print("Opação:  ");
-			n = Integer.parseInt(sc.next());
+			n = Integer.parseInt(sc.nextLine());
+			sc.nextLine();
 			System.out.println("//////////////////////////////");
 
 			switch (n) {
@@ -81,7 +82,7 @@ public class Program {
 			}
 
 		}
-		sc.close();
+		
 	}
 
 	public static void arquivo(String arquivo) {
@@ -183,6 +184,7 @@ public class Program {
 
 	}
 
+	
 	public static void gerarOrden(String disc) {
 
 		List<Prova> prova = new ArrayList<>();
@@ -197,7 +199,7 @@ public class Program {
 			}
 			
 
-			try (BufferedWriter bw = new BufferedWriter(new FileWriter(file(disc) + "Orden.txt"))) {
+			try (BufferedWriter bw = new BufferedWriter(new FileWriter(file(disc) + "Orden.txt"))) { //cria arquivo em ordem alfabetica
 				
 				Collections.sort(prova);
 				for (Prova p : prova) {
@@ -206,7 +208,9 @@ public class Program {
 					bw.newLine();
 					
 				}
-
+				bw.close();
+				
+				
 			}
 
 		} catch (FileNotFoundException e) {

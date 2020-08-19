@@ -1,6 +1,6 @@
 package entities;
 
-public class Prova implements Comparable<Prova> {
+public class Prova {
 
 	private String aluno;
 	private String res;
@@ -24,11 +24,6 @@ public class Prova implements Comparable<Prova> {
 
 	public void setRes(String res) {
 		this.res = res;
-	}
-
-	@Override
-	public int compareTo(Prova o) {
-		return aluno.compareTo(o.getAluno());
 	}
 
 	@Override

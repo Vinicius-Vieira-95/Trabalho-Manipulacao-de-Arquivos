@@ -189,10 +189,11 @@ public class Program {
 
 			try (BufferedWriter bw = new BufferedWriter(new FileWriter(file(disc) + "Orden.txt"))) { //cria arquivo em ordem alfabetica
 				
-				Collections.sort(prova);
+				prova.sort((p1 , p2) -> p1.getAluno().toUpperCase().compareTo(p2.getAluno().toUpperCase()));
+				
 				for (Prova p : prova) {
 					bw.write(p.getAluno()+","+ p.getRes());
-					System.out.println(p.getAluno() + " , " + p.getRes());
+					System.out.println(p);
 					bw.newLine();
 					
 				}
